@@ -1,5 +1,5 @@
 <template>
-    <main class="form-signin w-100 m-auto">
+  <main class="form-signin w-100 m-auto">
   <form @submit.prevent="submit">
     <h1 class="h3 mb-3 fw-normal">Please Login</h1>
 
@@ -22,29 +22,31 @@
 </main>
 </template>
 
-<script>
-    import {reactive} from 'vue';
+<script lang="ts">
+    import {reactive, SetupContext} from 'vue';
     import axios from 'axios';
-import { useRouter } from 'vue-router';
 
 export default {
-    name: 'Login',
-    setup() {
+    name: 'LoginForm',
+    emits: ['loginData'],
+    setup(props: any, context: SetupContext) {
        const data = reactive({
           email: '',
           password: ''
        });
-
-       const router = useRouter();
+       const notify = reactive({
+        message: '',
+        type: ''
+         });
 
        const submit = async () => {
-         const response = await axios.post('login', data, {
-             withCredentials: true
-          });
 
-          axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access_token}`;
+         const response = await axios.post('login', data);
 
-          await router.push('/');
+          await context.emit('loginData', response.data);
+
+          notify.type = 'success';
+            notify.message = 'Login success';
        }
 
        return {
@@ -52,33 +54,34 @@ export default {
           submit
        }
     }
+
 }
 </script>
 
 <style>
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: auto;
-}
-
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.signin-button {
-    margin: auto;
-  }
-</style>
+    .form-signin {
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+    }
+    
+    .form-signin .form-floating:focus-within {
+      z-index: 2;
+    }
+    
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    
+    .signin-button {
+        margin: auto;
+      }
+    </style>
