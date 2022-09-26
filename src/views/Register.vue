@@ -4,23 +4,23 @@
     <h1 class="h3 mb-3 fw-normal">Please Register</h1>
 
     <div class="form-floating">
-      <input v-model="data.first_name" type="text" class="form-control" placeholder="Firstname">
+      <input v-model="data.first_name"  name="first_name" type="text" class="form-control" placeholder="Firstname">
       <label>Firstname</label>
     </div>
     <div class="form-floating">
-      <input v-model="data.last_name" type="text" class="form-control" placeholder="Lastname">
+      <input v-model="data.last_name" name="last_name" type="text" class="form-control" placeholder="Lastname">
       <label>Lastname</label>
     </div>
     <div class="form-floating">
-      <input v-model="data.email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input v-model="data.email" type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input v-model="data.password" type="password" class="form-control" placeholder="Password">
+      <input v-model="data.password" name="password" type="password" class="form-control" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
     <div class="form-floating">
-      <input v-model="data.password_confirm" type="password" class="form-control" placeholder="Password Confirm">
+      <input v-model="data.password_confirm"  name="password_confirm" type="password" class="form-control" placeholder="Password Confirm">
       <label>Password</label>
     </div>
 
