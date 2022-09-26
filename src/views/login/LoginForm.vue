@@ -76,7 +76,7 @@ export default {
         }
         const hasNumber = /\d/;
         if (!hasNumber.test(value)) {
-          return 'Number is required';'';
+          return 'Number is required';
         }
         const regex = /[!@#$%^&*(),.?":{}|<>]/;
         if (!regex.test(value)) {
