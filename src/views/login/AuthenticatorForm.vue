@@ -4,7 +4,7 @@
     <h1 class="h3 mb-3 fw-normal">Please insert your authenticator code</h1>
 
     <div class="form-floating">
-      <input v-model="code" type="text" class="form-control" id="floatingInput" placeholder="6 digits code">
+      <input v-model="code"  name="code" type="text" class="form-control" id="floatingInput" placeholder="6 digits code">
       <label for="floatingInput">6 digits code</label>
     </div>
 

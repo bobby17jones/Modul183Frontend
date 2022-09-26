@@ -4,11 +4,11 @@
     <h1 class="h3 mb-3 fw-normal">Please reset your password</h1>
 
     <div class="form-floating">
-      <input v-model="data.password" type="password" class="form-control" placeholder="Password">
+      <input v-model="data.password" name="password" type="password" class="form-control" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
     <div class="form-floating">
-      <input v-model="data.password_confirm" type="password" class="form-control" placeholder="Password Confirm">
+      <input v-model="data.password_confirm" name="password_confirm" type="password" class="form-control" placeholder="Password Confirm">
       <label>Password</label>
     </div>
 
